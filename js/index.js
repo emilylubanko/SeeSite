@@ -21,6 +21,84 @@ $(document).ready(function(){
   });
 });
 
+var cardarea = document.getElementById("cardarea");
+
+function clearCardArea(){
+  cardarea.innerHTML= "";
+}
+
+function handleButtonClick(){
+  clearCardArea();
+  showCard();
+}
+
+var lonelyPairCard = {
+  title: "The Lonely Pair",
+  image: "images/thelonelypair.png",
+  description: "These things pass, too, with or without those around you. Take in the taste of the night air and listen to time move. Be thankful for this bittersweet moment.",
+};
+
+var mantisKingCard = {
+  title: "The Mantis King",
+  image: "images/themantisking.png",
+  description: "Even those alien to us have rules. Listen carefully, watch carefully, and move with deliberation.",
+};
+
+var masterCardList = [
+  lonelyPairCard, mantisKingCard
+];
+
+var numberOfClick = 0
+
+var togglebutton = document.getElementById("togglebutton");
+
+togglebutton.onclick= handleButtonClick;
+
+
+function showCard() {
+  var randomCard = getRandomCard();
+  cardarea.innerHTML = renderCard(randomCard);
+
+}; 
+
+function getRandomCard() {
+  return masterCardList[Math.floor(Math.random()*masterCardList.length)]; 
+};
+
+function renderCard(card){
+  return(`<div class="listpoem">
+  <img class="imagecurse" src="${card.image}">
+
+  <h2>${card.title}</h2>
+
+  <p class = "introwelcome">
+      ${card.description}
+  </p>
+</div>`
+
+  )
+};
+
+// var item = items[Math.floor(Math.random()*items.length)];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//------
 
 
 // add a basic x with an id and then copy what is above and reverse engineer it
